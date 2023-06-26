@@ -4,6 +4,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Avatar from "@mui/material/Avatar";
 import HomeIcon from "@mui/icons-material/Home";
 
 const styles = {
@@ -14,17 +16,31 @@ const styles = {
     flexWrap: "wrap",
     padding: 1.5,
   },
+  avatar: {
+    backgroundColor: "rgb(255, 0, 0)",
+  },
 };
 
 const MovieHeader = (props) => {
   const movie = props.movie;
+
+  const isFavourite = (movie) => {
+    const favouriteMovies = JSON.parse(localStorage.getItem("favourites")) || [];
+    return favouriteMovies.some(favouriteMovie => favouriteMovie.id === movie.id);
+  }
 
   return (
     <Paper component="div" sx={styles.root}>
       <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
-
+      {
+        isFavourite(movie) ? (
+          <Avatar sx={styles.avatar}>
+            <FavoriteIcon />
+          </Avatar>
+        ) : null
+      }
       <Typography variant="h4" component="h3">
         {movie.title}{"   "}
         <a href={movie.homepage}>
