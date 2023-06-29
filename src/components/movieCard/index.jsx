@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 
@@ -25,6 +26,7 @@ const styles = {
 
 export default function MovieCard({ movie, action }) {
   const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { playlist, addToPlaylist } = useContext(MoviesContext);
 
   if (favourites.find((id) => id === movie.id)) {
     movie.favourite = true;
@@ -32,16 +34,29 @@ export default function MovieCard({ movie, action }) {
     movie.favourite = false
   }
 
+  if (playlist.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else {
+    movie.mustWatch = false
+  }
+
   return (
     <Card sx={styles.card}>
       <CardHeader
         sx={styles.header}
         avatar={
-          movie.favourite ? (
-            <Avatar sx={styles.avatar}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
+          <>
+            {movie.favourite ? (
+              <Avatar sx={styles.avatar}>
+                <FavoriteIcon />
+              </Avatar>
+            ) : null}
+            {movie.mustWatch ? (
+              <Avatar sx={styles.avatar}>
+                <PlaylistAddCheckIcon />
+              </Avatar>
+            ) : null}
+          </>
         }
         title={
           <Typography variant="h5" component="p">
