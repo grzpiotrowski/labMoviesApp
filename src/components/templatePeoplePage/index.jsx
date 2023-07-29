@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
+import Person from "../personCard";
 
 const styles = {
   root: {
@@ -18,10 +19,10 @@ function PeopleListPageTemplate({ people }) {
     <>
       <Grid container sx={styles.root}>
         <Grid item container spacing={1}>
-            {people.map((person, index) => (
-                <Grid item xs={12} key={index}>
-                    {person.name}
-                </Grid>
+            {people.map((person) => (
+              <Grid key={person.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
+                <Person key={person.id} person={person} />
+              </Grid>
             ))}
         </Grid>
       </Grid>

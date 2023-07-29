@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -8,9 +7,6 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
-import StarRateIcon from "@mui/icons-material/StarRate";
-import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 
 const styles = {
@@ -21,7 +17,7 @@ const styles = {
   },
 };
 
-export default function PersonCard({ person, action }) {
+export default function PersonCard({ person }) {
   return (
     <Card sx={styles.card}>
       <CardHeader
