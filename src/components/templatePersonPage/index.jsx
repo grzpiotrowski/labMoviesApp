@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Image from "mui-image";
+import PersonFactsSidebar from "../personFactsSidebar";
 
 const styles = {
   gridListRoot: {
@@ -19,10 +20,7 @@ const TemplatePersonPage = ({ person, children }) => {
     <>
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
-            <Image
-                src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
-                alt={person.profile_path}
-            />
+          <PersonFactsSidebar person={person} />
         </Grid>
 
         <Grid item xs={9}>

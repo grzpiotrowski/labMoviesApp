@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import PageTemplate from "../components/templatePersonPage";
+import PersonDetails from "../components/personDetails";
 import { getPerson } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
@@ -26,6 +27,7 @@ const PersonDetailsPage = () => {
       {person ? (
         <>
           <PageTemplate person={person}>
+            <PersonDetails person={person} />
           </PageTemplate>
         </>
       ) : (
