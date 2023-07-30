@@ -116,7 +116,9 @@ export const getPeople = () => {
   });
 };
 
-export const getPerson = (id) => {
+export const getPerson = (args) => {
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
   return fetch(
     `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
   ).then((response) => {

@@ -27,6 +27,7 @@ SPA for Movie enthusiasts developed as the lab work of the Full Stack Web Develo
 - https://mui.com/material-ui/react-image-list/
 - https://mui.com/material-ui/react-floating-action-button/
 - https://mui.com/material-ui/react-drawer/
+- https://github.com/benmneb/mui-image
 
 ### ES6 Object de-structuring
 - https://dmitripavlutin.com/javascript-object-destructuring/
