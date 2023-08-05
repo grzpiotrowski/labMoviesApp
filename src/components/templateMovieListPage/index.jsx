@@ -22,6 +22,8 @@ function MovieListPageTemplate({ movies, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [popularityFilter, setPopularityFilter] = useState("0");
+  const [releaseDateBeforeFilter, setReleaseDateBeforeFilter] = useState("");
+  const [releaseDateAfterFilter, setReleaseDateAfterFilter] = useState("");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const genreId = Number(genreFilter);
@@ -29,7 +31,9 @@ function MovieListPageTemplate({ movies, title, action }) {
   let displayedMovies = movies
     .filter((m) => m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1)
     .filter((m) => genreId > 0 ? m.genre_ids.includes(genreId) : true)
-    .filter((m) => popularityFilter ? m.popularity >= Number(popularityFilter) : true);
+    .filter((m) => popularityFilter ? m.popularity >= Number(popularityFilter) : true)
+    .filter((m) => releaseDateBeforeFilter ? m.release_date <= releaseDateBeforeFilter : true)
+    .filter((m) => releaseDateAfterFilter ? m.release_date >= releaseDateAfterFilter : true);
 
     const handleChange = (type, value) => {
       switch (type) {
@@ -41,6 +45,12 @@ function MovieListPageTemplate({ movies, title, action }) {
           break;
         case "popularity":
           setPopularityFilter(value);
+          break;
+        case "release_date_before":
+          setReleaseDateBeforeFilter(value);
+          break;
+        case "release_date_after":
+          setReleaseDateAfterFilter(value);
           break;
         default:
           break;
@@ -78,6 +88,8 @@ function MovieListPageTemplate({ movies, title, action }) {
           titleFilter={titleFilter}
           genreFilter={genreFilter}
           popularityFilter={popularityFilter}
+          releaseDateBeforeFilter={releaseDateBeforeFilter}
+          releaseDateAfterFilter={releaseDateAfterFilter}
         />
       </Drawer>
     </>  

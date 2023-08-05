@@ -59,6 +59,14 @@ export default function FilterMoviesCard(props) {
     handleUserImput(e, "popularity", e.target.value);
   };
 
+  const handleReleaseDateBeforeChange = (e) => {
+    handleUserImput(e, "release_date_before", e.target.value);
+  };
+
+  const handleReleaseDateAfterChange = (e) => {
+    handleUserImput(e, "release_date_after", e.target.value);
+  };
+
   return (
     <>
     <Card sx={styles.root} variant="outlined">
@@ -84,7 +92,31 @@ export default function FilterMoviesCard(props) {
           value={props.popularityFilter}
           variant="filled"
           onChange={handlePopularityChange}
-        />        
+        />
+        <TextField
+          sx={styles.formControl}
+          id="release-date-before"
+          label="Released Before"
+          type="date"
+          value={props.releaseDateBeforeFilter}
+          variant="filled"
+          onChange={handleReleaseDateBeforeChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          sx={styles.formControl}
+          id="release-date-after"
+          label="Released After"
+          type="date"
+          value={props.releaseDateAfterFilter}
+          variant="filled"
+          onChange={handleReleaseDateAfterChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
         <FormControl sx={styles.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
