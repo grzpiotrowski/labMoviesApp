@@ -55,6 +55,10 @@ export default function FilterMoviesCard(props) {
     handleUserImput(e, "genre", e.target.value);
   };
 
+  const handlePopularityChange = (e) => {
+    handleUserImput(e, "popularity", e.target.value);
+  };
+
   return (
     <>
     <Card sx={styles.root} variant="outlined">
@@ -72,6 +76,15 @@ export default function FilterMoviesCard(props) {
           variant="filled"
           onChange={handleTextChange}
         />
+        <TextField
+          sx={styles.formControl}
+          id="popularity"
+          label="Minimum Popularity"
+          type="number"
+          value={props.popularityFilter}
+          variant="filled"
+          onChange={handlePopularityChange}
+        />        
         <FormControl sx={styles.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select

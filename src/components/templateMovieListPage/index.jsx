@@ -21,22 +21,31 @@ const styles = {
 function MovieListPageTemplate({ movies, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+  const [popularityFilter, setPopularityFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const genreId = Number(genreFilter);
 
   let displayedMovies = movies
-    .filter((m) => {
-      return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
-    })
-    .filter((m) => {
-      return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+    .filter((m) => m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1)
+    .filter((m) => genreId > 0 ? m.genre_ids.includes(genreId) : true)
+    .filter((m) => popularityFilter ? m.popularity >= Number(popularityFilter) : true);
 
-  const handleChange = (type, value) => {
-    if (type === "title") setTitleFilter(value);
-    else setGenreFilter(value);
-  };
+    const handleChange = (type, value) => {
+      switch (type) {
+        case "title":
+          setTitleFilter(value);
+          break;
+        case "genre":
+          setGenreFilter(value);
+          break;
+        case "popularity":
+          setPopularityFilter(value);
+          break;
+        default:
+          break;
+      }
+    };
 
   return (
    <>
@@ -68,6 +77,7 @@ function MovieListPageTemplate({ movies, title, action }) {
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
+          popularityFilter={popularityFilter}
         />
       </Drawer>
     </>  
