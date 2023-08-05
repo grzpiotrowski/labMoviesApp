@@ -15,13 +15,18 @@ const styles = {
   },
 };
 
-const Header = (props ) => {
-  const title = props.title
+const Header = (props) => {
+  const title = props.title;
+  const handleBack = props.handleBack;
+  const handleNext = props.handleNext;
+
+  console.log(props)
 
   return (
     <Paper component="div" sx={styles.root}>
       <IconButton
         aria-label="go back"
+        onClick={handleBack}
       >
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
@@ -29,8 +34,10 @@ const Header = (props ) => {
       <Typography variant="h4" component="h3">
         {title}
       </Typography>
+
       <IconButton
         aria-label="go forward"
+        onClick={handleNext}
       >
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>

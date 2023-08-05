@@ -6,7 +6,22 @@ import Spinner from "../components/spinner";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 
 const HomePage = (props) => {
-  const { data, error, isLoading, isError } = useQuery("discover", getMovies);
+  const [page, setPage] = useState(1);
+  
+  const { data, error, isLoading, isError } = useQuery(
+      ["discover", { page: page }],
+      getMovies
+    );
+
+  const handleNext = () => {
+    console.log("Page up")
+    setPage(old => (old + 1));
+  };
+
+  const handleBack = () => {
+    console.log("Page down")
+    setPage(old => Math.max(old - 1, 1));
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -24,6 +39,8 @@ const HomePage = (props) => {
       action={(movie) => {
         return <AddToFavouritesIcon movie={movie} />
       }}
+      handleNext={handleNext}
+      handleBack={handleBack}
     />
   );
 };

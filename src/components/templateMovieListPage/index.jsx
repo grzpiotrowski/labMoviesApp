@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function MovieListPageTemplate({ movies, title, action }) {
+function MovieListPageTemplate({ movies, title, action, handleNext, handleBack }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [popularityFilter, setPopularityFilter] = useState("0");
@@ -35,33 +35,33 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => releaseDateBeforeFilter ? m.release_date <= releaseDateBeforeFilter : true)
     .filter((m) => releaseDateAfterFilter ? m.release_date >= releaseDateAfterFilter : true);
 
-    const handleChange = (type, value) => {
-      switch (type) {
-        case "title":
-          setTitleFilter(value);
-          break;
-        case "genre":
-          setGenreFilter(value);
-          break;
-        case "popularity":
-          setPopularityFilter(value);
-          break;
-        case "release_date_before":
-          setReleaseDateBeforeFilter(value);
-          break;
-        case "release_date_after":
-          setReleaseDateAfterFilter(value);
-          break;
-        default:
-          break;
-      }
-    };
+  const handleChange = (type, value) => {
+    switch (type) {
+      case "title":
+        setTitleFilter(value);
+        break;
+      case "genre":
+        setGenreFilter(value);
+        break;
+      case "popularity":
+        setPopularityFilter(value);
+        break;
+      case "release_date_before":
+        setReleaseDateBeforeFilter(value);
+        break;
+      case "release_date_after":
+        setReleaseDateAfterFilter(value);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
    <>
       <Grid container sx={styles.root}>
         <Grid item xs={12}>
-          <Header title={title} />
+          <Header title={title} handleNext={handleNext} handleBack={handleBack} />
         </Grid>
         <Grid item container spacing={5}>
           <MovieList
