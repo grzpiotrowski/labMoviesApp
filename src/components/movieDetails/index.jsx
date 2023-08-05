@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
+import { Button, Grid } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
@@ -10,6 +11,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from '../movieReviews'
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   chipSet: {
@@ -32,7 +34,13 @@ const styles = {
 };
 
 const MovieDetails = ( {movie}) => {
-  const [drawerOpen, setDrawerOpen] = useState(false); // New
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSimilarMoviesClick = () => {
+    const movieId = movie.id;
+    navigate(`/movies/${movieId}/similar`);
+  };
 
   return (
     <>
@@ -76,6 +84,11 @@ const MovieDetails = ( {movie}) => {
           </li>
         ))}
       </Paper>
+      <Grid container justifyContent="center" alignItems="center">
+        <Button variant="contained" onClick={handleSimilarMoviesClick}>
+          Find similar movies
+        </Button>
+      </Grid>
       <Fab    
         color="secondary"
         variant="extended"
