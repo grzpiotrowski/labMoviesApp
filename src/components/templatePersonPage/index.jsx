@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Image from "mui-image";
 import PersonFactsSidebar from "../personFactsSidebar";
 
 const styles = {

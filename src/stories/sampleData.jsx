@@ -189,7 +189,174 @@ const samplePersonDetails = {
   "profile_path": "/ti2h1OS1n1VwoJHWFaJD8dMZuEE.jpg"
 };
 
-export { sampleMovie as default, samplePerson, samplePersonDetails };
+const samplePersonCredit = {
+  "cast": [
+    {
+      "adult": false,
+      "backdrop_path": "/nZnkNpKCcfWHByKgFmVp4guxkY0.jpg",
+      "genre_ids": [
+        80
+      ],
+      "id": 2088,
+      "original_language": "en",
+      "original_title": "Romeo Is Bleeding",
+      "overview": "A corrupt cop gets in over his head when he tries to assassinate a beautiful Russian hit-woman.",
+      "popularity": 7.898,
+      "poster_path": "/mgCwAZBG0PCkZflC6nzsxwvG2vu.jpg",
+      "release_date": "1993-09-13",
+      "title": "Romeo Is Bleeding",
+      "video": false,
+      "vote_average": 6.127,
+      "vote_count": 143,
+      "character": "Jack Grimaldi",
+      "credit_id": "52fe4334c3a36847f804230b",
+      "order": 0,
+      "media_type": "movie"
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9Ozm2xSLu292GTo06JJrlkGGDfq.jpg",
+      "genre_ids": [
+        18,
+        53
+      ],
+      "id": 6521,
+      "original_language": "en",
+      "original_title": "The Contender",
+      "overview": "The vice president is dead, and as the president makes his choice for a replacement, a secret contest of wills is being waged by a formidable rival. When Senator Laine Hanson is nominated as the first woman in history to hold the office, hidden agendas explode into a battle for power.",
+      "popularity": 8.128,
+      "poster_path": "/duRe0F2GYHIDvqe2bqIAMP4gWeP.jpg",
+      "release_date": "2000-10-13",
+      "title": "The Contender",
+      "video": false,
+      "vote_average": 6.65,
+      "vote_count": 206,
+      "character": "Shelly Runyon",
+      "credit_id": "52fe4458c3a36847f809072d",
+      "order": 0,
+      "media_type": "movie"
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/j20lYJRd4NH4lb9FZA4XH3AwYMi.jpg",
+      "genre_ids": [
+        35,
+        18,
+        10749
+      ],
+      "id": 8325,
+      "original_language": "en",
+      "original_title": "Tiptoes",
+      "overview": "A man is reluctant to tell his fiancee that his parents, uncle and brother are dwarfs.",
+      "popularity": 5.849,
+      "poster_path": "/m609NhpkIUzAyIWgQYaaPSIsWFO.jpg",
+      "release_date": "2003-09-08",
+      "title": "Tiptoes",
+      "video": false,
+      "vote_average": 4.243,
+      "vote_count": 68,
+      "character": "Rolfe",
+      "credit_id": "52fe449ec3a36847f80a0801",
+      "order": 0,
+      "media_type": "movie"
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lnak9QJorq9J84KR4R80MCZEMHL.jpg",
+      "genre_ids": [
+        27,
+        53,
+        28
+      ],
+      "id": 12677,
+      "original_language": "es",
+      "original_title": "Bosque de sombras",
+      "overview": "An English couple's holiday in Spain is interrupted when they discover a girl imprisoned in a cabin.",
+      "popularity": 6.532,
+      "poster_path": "/tSyuca9qJbKYqEracw25m9HRlvN.jpg",
+      "release_date": "2006-09-24",
+      "title": "The Backwoods",
+      "video": false,
+      "vote_average": 5.392,
+      "vote_count": 88,
+      "character": "Paul",
+      "credit_id": "52fe45129251416c7504ac47",
+      "order": 0,
+      "media_type": "movie"
+    }
+  ],
+  "crew": [
+    {
+      "adult": false,
+      "backdrop_path": "/gJHbC2PZHfX4YZ8MzLCv5rDCP8Y.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 21252,
+      "original_language": "en",
+      "original_title": "Nil by Mouth",
+      "overview": "The family of Raymond, his wife Val and her brother Billy live in working-class London district. Also in their family is Val and Billy's mother Janet and grandmother Kath. Billy is a drug addict and Raymond kicks him out of the house, making him live on his own. Raymond is generally a rough and even violent person, and that leads to problems in the life of the family.",
+      "popularity": 4.907,
+      "poster_path": "/pKKtHEsp43vJZGzfdYyYhgOxsFa.jpg",
+      "release_date": "1997-05-08",
+      "title": "Nil by Mouth",
+      "video": false,
+      "vote_average": 6.942,
+      "vote_count": 109,
+      "credit_id": "52fe4412c3a368484e00da81",
+      "department": "Directing",
+      "job": "Director",
+      "media_type": "movie"
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rLjVQbhRqWtJmdrSSfusnlCKHf8.jpg",
+      "genre_ids": [
+        10402
+      ],
+      "id": 105395,
+      "original_language": "en",
+      "original_title": "Jack White: Unstaged",
+      "overview": "Directed by actor/filmmaker Gary Oldman, this show finds Jack White performing  at Webster Hall in New York City.",
+      "popularity": 0.6,
+      "poster_path": "/6N4cdNIoUa6JEKJlkGALsSoM1mj.jpg",
+      "release_date": "2012-04-27",
+      "title": "Jack White: Unstaged",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0,
+      "credit_id": "52fe4a4bc3a36847f81c5dfb",
+      "department": "Directing",
+      "job": "Director",
+      "media_type": "movie"
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        18
+      ],
+      "id": 300450,
+      "original_language": "en",
+      "original_title": "Flying Horse",
+      "overview": "A biopic of pioneer photographer Eadweard Muybridge, following the courtship and love affair between Muybridge's wife, Flora, and Harry Larkyns.",
+      "popularity": 0.939,
+      "poster_path": null,
+      "release_date": "",
+      "title": "Flying Horse",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0,
+      "credit_id": "551874449251412c1e0031b4",
+      "department": "Directing",
+      "job": "Director",
+      "media_type": "movie"
+    }
+  ],
+  "id": 64
+};
+
+export { sampleMovie as default, samplePerson, samplePersonDetails, samplePersonCredit };
 
 
 
