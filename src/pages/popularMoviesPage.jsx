@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
 import { useQuery } from "react-query";
@@ -7,7 +7,20 @@ import Spinner from "../components/spinner";
 
 
 const PopularMoviesPage = (props) => {
-  const { data, error, isLoading, isError } = useQuery("popular", getPopularMovies);
+  const [page, setPage] = useState(1);
+
+  const { data, error, isLoading, isError } = useQuery(
+      ["popular", { page: page }],
+      getPopularMovies
+    );
+
+  const handleNext = () => {
+    setPage(old => (old + 1));
+  };
+
+  const handleBack = () => {
+    setPage(old => Math.max(old - 1, 1));
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -25,6 +38,8 @@ const PopularMoviesPage = (props) => {
       action={(movie) => {
         return <AddToPlaylistIcon movie={movie} />
       }}
+      handleNext={handleNext}
+      handleBack={handleBack}
     />
   );
 };
