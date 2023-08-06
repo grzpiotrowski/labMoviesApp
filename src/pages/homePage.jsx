@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
@@ -14,12 +14,10 @@ const HomePage = (props) => {
     );
 
   const handleNext = () => {
-    console.log("Page up")
     setPage(old => (old + 1));
   };
 
   const handleBack = () => {
-    console.log("Page down")
     setPage(old => Math.max(old - 1, 1));
   };
 
