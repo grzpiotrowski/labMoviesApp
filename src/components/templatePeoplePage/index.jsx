@@ -14,14 +14,14 @@ const styles = {
   },
 };
 
-function PeopleListPageTemplate({ people }) {
+function PeopleListPageTemplate({ people, action }) {
   return (
     <>
       <Grid container sx={styles.root}>
         <Grid item container spacing={1}>
             {people.map((person) => (
               <Grid key={person.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
-                <Person key={person.id} person={person} />
+                <Person key={person.id} person={person} action={action} />
               </Grid>
             ))}
         </Grid>

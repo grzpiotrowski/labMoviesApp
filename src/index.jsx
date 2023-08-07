@@ -15,6 +15,7 @@ import PeoplePage from "./pages/peoplePage";
 import PersonPage from "./pages/personDetailsPage"
 import SiteHeader from './components/siteHeader'
 import MoviesContextProvider from "./contexts/moviesContext";
+import PeopleContextProvider from "./contexts/peopleContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,19 +33,21 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
-          <Routes>
-            <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-            <Route path="/reviews/:id" element={<MovieReviewPage/>} />
-            <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-            <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
-            <Route path="/movies/popular" element={<PopularMoviesPage />} />
-            <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
-            <Route path="/movies/:id" element={<MoviePage />} />
-            <Route path="/people" element={<PeoplePage />} />
-            <Route path="/people/:id" element={<PersonPage />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          <PeopleContextProvider>
+            <Routes>
+              <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
+              <Route path="/reviews/:id" element={<MovieReviewPage/>} />
+              <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
+              <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
+              <Route path="/movies/popular" element={<PopularMoviesPage />} />
+              <Route path="/movies/:id/similar" element={<SimilarMoviesPage />} />
+              <Route path="/movies/:id" element={<MoviePage />} />
+              <Route path="/people" element={<PeoplePage />} />
+              <Route path="/people/:id" element={<PersonPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </PeopleContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

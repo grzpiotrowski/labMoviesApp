@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const AddToFavouritesIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const AddToFavouritesIcon = ({ object, targetContext }) => {
+  const context = useContext(targetContext);
 
   const onUserSelect = (e) => {
     e.preventDefault();
-    context.addToFavourites(movie);
+    context.addToFavourites(object);
   };
   return (
     <IconButton aria-label="add to favorites" onClick={onUserSelect}>

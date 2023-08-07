@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { MoviesContext } from "../../contexts/moviesContext";
 
-const RemoveFromFavouritesIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const RemoveFromFavouritesIcon = ({ object, targetContext }) => {
+  const context = useContext(targetContext);
 
   const onUserRequest = (e) => {
     e.preventDefault();
-    context.removeFromFavourites(movie);
+    context.removeFromFavourites(object);
   };
 
 return (

@@ -1,9 +1,10 @@
 import React from "react";
 import PageTemplate from '../components/templatePeoplePage'
-import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import { useQuery } from "react-query";
 import { getPeople } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
+import { PeopleContext } from "../contexts/peopleContext";
 
 
 const PeoplePage = (props) => {
@@ -22,6 +23,9 @@ const PeoplePage = (props) => {
     <PageTemplate
       title='People'
       people={people}
+      action={(person) => {
+        return <AddToFavouritesIcon object={person} targetContext={PeopleContext} />
+      }}
     />
   );
 };
