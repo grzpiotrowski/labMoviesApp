@@ -2,7 +2,7 @@ import React from "react";
 import PersonCard from "../components/personCard";
 import { samplePerson } from "./sampleData";
 import { MemoryRouter } from "react-router";
-import MoviesContextProvider from "../contexts/moviesContext";
+import PeopleContextProvider from "../contexts/peopleContext";
 import { action } from "@storybook/addon-actions";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
@@ -11,7 +11,7 @@ export default {
   component: PersonCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <PeopleContextProvider>{Story()}</PeopleContextProvider>,
   ],
 };
 
@@ -19,6 +19,7 @@ export const Basic = () => {
   return (
     <PersonCard
       person={samplePerson}
+      action={(person) => <AddToFavouritesIcon person={person} targetContext={(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>} />}
       taging={(person) => null}
     />
   );
@@ -26,10 +27,11 @@ export const Basic = () => {
 Basic.storyName = "Default";
 
 export const Exceptional = () => {
-  const sampleNoPoster = { ...samplePerson, poster_path: undefined };
+  const sampleNoPoster = { ...samplePerson, profile_path: undefined };
   return (
     <PersonCard
       person={sampleNoPoster}
+      action={(person) => <AddToFavouritesIcon person={person} targetContext={(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>} />}
       taging={(person) => null}
     />
   );

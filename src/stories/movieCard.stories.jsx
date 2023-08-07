@@ -19,7 +19,7 @@ export const Basic = () => {
   return (
     <MovieCard
       movie={SampleMovie}
-      action={(movie) => <AddToFavouritesIcon movie={movie} />}
+      action={(movie) => <AddToFavouritesIcon movie={movie} targetContext={(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>} />}
       taging={(movie) => null}
     />
   );
@@ -31,7 +31,7 @@ export const Exceptional = () => {
   return (
     <MovieCard
       movie={sampleNoPoster}
-      action={(movie) => <AddToFavouritesIcon movie={movie} />}
+      action={(movie) => <AddToFavouritesIcon movie={movie} targetContext={(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>} />}
       taging={(movie) => null}
     />
   );
