@@ -1,7 +1,11 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useContext, createContext } from "react";
 import fakeAuth from '../fakeAuth'
 
 export const AuthContext = createContext(null);
+
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
 const AuthContextProvider = ({children}) => {
   const [token, setToken ] = useState(null);
