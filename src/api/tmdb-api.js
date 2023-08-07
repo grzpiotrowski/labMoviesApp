@@ -31,7 +31,6 @@ export const getMovie = (args) => {
  });
 };
 
-  
 export const getGenres = async () => {
   return fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
@@ -74,6 +73,36 @@ export const getMovieReviews = (id) => {
       // console.log(json.results);
       return json.results;
     });
+};
+
+export const getMovieCredits = (args) => {
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json)
+      return json;
+    });
+};
+
+export const getMovieCreditss = (args) => {
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    console.log(response)
+    return response.json();
+  })
+  .catch((error) => {
+     throw error
+  });
 };
 
 export const getUpcomingMovies = (args) => {
