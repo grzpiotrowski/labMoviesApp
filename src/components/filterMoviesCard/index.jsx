@@ -42,29 +42,29 @@ export default function FilterMoviesCard(props) {
     genres.unshift({ id: "0", name: "All" });
   }
 
-  const handleUserImput = (e, type, value) => {
+  const handleUserInput = (e, type, value) => {
     e.preventDefault();
-    props.onUserInput(type, value); // NEW
+    props.onUserInput(type, value);
   };
 
   const handleTextChange = (e, props) => {
-    handleUserImput(e, "title", e.target.value);
+    handleUserInput(e, "title", e.target.value);
   };
 
   const handleGenreChange = (e) => {
-    handleUserImput(e, "genre", e.target.value);
+    handleUserInput(e, "genre", e.target.value);
   };
 
   const handlePopularityChange = (e) => {
-    handleUserImput(e, "popularity", e.target.value);
+    handleUserInput(e, "popularity", e.target.value);
   };
 
   const handleReleaseDateBeforeChange = (e) => {
-    handleUserImput(e, "release_date_before", e.target.value);
+    handleUserInput(e, "release_date_before", e.target.value);
   };
 
   const handleReleaseDateAfterChange = (e) => {
-    handleUserImput(e, "release_date_after", e.target.value);
+    handleUserInput(e, "release_date_after", e.target.value);
   };
 
   return (
