@@ -85,7 +85,9 @@ __Name:__ Grzegorz Piotrowski
 
 ![][storybook-image]
 
-## Authentication. (if relevant)
+## Authentication
+
+Not logged in users can only access the Home page and the login page.
 
 #### Protected routes 
 
@@ -101,6 +103,9 @@ __Name:__ Grzegorz Piotrowski
 + /login (Public) - Login Page
 + / (Public) - Home Page - Lists paginated movies from the movie/discover endpoint
 
+## Additional Information.
+
++ siteHeader navigation options depend on the auth token - not logged in user has limited nav options presented.
 
 [data-caching]: ./images/data-caching.jpg
 [data-linking-cast]: ./images/data-linking-cast.jpg

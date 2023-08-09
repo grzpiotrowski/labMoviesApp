@@ -41,7 +41,7 @@ const App = () => {
               <Routes>
                 <Route path="/reviews/form" element={ <ProtectedRoute> <AddMovieReviewPage/> </ProtectedRoute> } />
                 <Route path="/reviews/:id" element={ <ProtectedRoute> <MovieReviewPage/> </ProtectedRoute> } />
-                <Route path="/movies/upcoming" element={ <UpcomingMoviesPage /> } />
+                <Route path="/movies/upcoming" element={ <ProtectedRoute> <UpcomingMoviesPage /> </ProtectedRoute> } />
                 <Route path="/movies/favourites" element={ <ProtectedRoute> <FavouriteMoviesPage /> </ProtectedRoute> } />
                 <Route path="/movies/popular" element={ <ProtectedRoute> <PopularMoviesPage /> </ProtectedRoute>} />
                 <Route path="/movies/:id/similar" element={ <ProtectedRoute> <SimilarMoviesPage /> </ProtectedRoute> } />
